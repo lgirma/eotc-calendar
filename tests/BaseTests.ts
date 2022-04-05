@@ -1,5 +1,5 @@
 import { describe } from 'mocha';
-import {getEvangelist, Evangelists, getRabit, getWenber, getMeTq, getMebacha, Days} from "../src";
+import {getEvangelist, EVANGELIST_MATTHEW, getRabit, getWenber, getMeTq, getMebacha, DAY_THU} from "../src";
 // @ts-ignore
 const chai = require('chai');
 const expect = chai.expect;
@@ -7,7 +7,7 @@ const expect = chai.expect;
 describe('base tests for 2001 E.C.', () => {
 
     it('Returns the correct evangelist', () => {
-        expect(getEvangelist(2001)).to.equal(Evangelists.MAT);
+        expect(getEvangelist(2001)).to.equal(EVANGELIST_MATTHEW);
     });
 
     it('Returns the correct rabit', () => {
@@ -23,6 +23,6 @@ describe('base tests for 2001 E.C.', () => {
     });
 
     it('Returns the correct mebacha', () => {
-        expect(getMebacha(2001)).to.equal(Days.THU);
+        expect(getMebacha(2001)).to.equal(DAY_THU);
     });
 });

@@ -7,6 +7,6 @@ export default defineConfig({
             entry: path.resolve(__dirname, 'src/index.ts'),
             name: 'eotc-calendar'
         },
-        minify: false
+        minify: true
     }
 })

@@ -1,39 +1,21 @@
+import { Day, DayOfYear, Month, Feast } from "."
 import { getMebajaHamer } from "./base"
 
-export function getNineveh(year: number) {
+export function getNineveh(year: number): DayOfYear {
     const mebajaHamer = getMebajaHamer(year)
-    return [mebajaHamer[0] + 5, mebajaHamer[1]]
+    return [mebajaHamer[0] + 4 as Month, mebajaHamer[1]]
 }
 
-export function getAbiyTsom(year: number) {
-    const nineveh = getNineveh(year)
-    return [nineveh[0], 0]
+export const getNenewe = getNineveh
+
+export function getFeast(feast: Feast, year: number): DayOfYear {
+    return getFeastFromNineveh(feast, getNineveh(year))
 }
 
-export function getDebrezeit(year: number) {
-    return [0, 0]
-}
-
-export function getHosaena(year: number) {
-    return [0, 0]
-}
-
-export function getSiqlet(year: number) {
-    return [0, 0]
-}
-
-export function getTinsae(year: number) {
-    return [0, 0]
-}
-
-export function getErget(year: number) {
-    return [0, 0]
-}
-
-export function getPeraqliTos(year: number) {
-    return [0, 0]
-}
-
-export function getTsomeHawariat(year: number) {
-    return [0, 0]
+export function getFeastFromNineveh(feast: Feast, nineveh: DayOfYear): DayOfYear {
+    const day = nineveh[1] + feast
+    return [
+        nineveh[0] + (day % 30 == 0 ? day/30 - 1 : Math.floor(day / 30)) as Month, 
+        ((day % 30) || 30) as Day
+    ]
 }

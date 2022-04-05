@@ -1,5 +1,5 @@
 import { describe } from 'mocha';
-import {getNineveh, getAbiyTsom, getDebrezeit} from "../src";
+import {getNineveh, getFeastFromNineveh, FEAST_ABIY_TSOM, FEAST_DEBREZEIT} from "../src";
 // @ts-ignore
 const chai = require('chai');
 const expect = chai.expect;
@@ -11,10 +11,10 @@ describe('feasts tests for 2014 E.C.', () => {
     });
 
     it('Returns the correct abiy tsom', () => {
-        expect(getAbiyTsom(2014)).to.deep.equal([6,21]);
+        expect(getFeastFromNineveh(FEAST_ABIY_TSOM, [6,7])).to.deep.equal([6,21]);
     });
 
     it('Returns the correct debrezeit', () => {
-        expect(getDebrezeit(2014)).to.deep.equal([7,18]);
+        expect(getFeastFromNineveh(FEAST_DEBREZEIT, [6,7])).to.deep.equal([7,18]);
     });
 });

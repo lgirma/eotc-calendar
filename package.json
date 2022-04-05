@@ -5,10 +5,14 @@
   "author": "Leone",
   "repository": "https://github.com/lgirma/eotc-calendar",
   "homepage": "https://github.com/lgirma/eotc-calendar",
+  "module": "./dist/eotc-calendar.es.js",
+  "main": "./dist/eotc-calendar.umd.js",
   "license": "ISC",
+  "types": "dist/index.d.ts",
   "keywords": [
     "ethiopian",
     "orthodox",
+    "church",
     "eotc",
     "calendar",
     "feasts",
@@ -17,8 +21,9 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build && tsc --emitDeclarationOnly --project tsconfig.typedec.json",
     "preview": "vite preview",
+    "declaration": "tsc --emitDeclarationOnly --project tsconfig.typedec.json",
     "test": "ts-mocha -p ./tsconfig.tests.json 'tests/**/*.ts'"
   },
   "devDependencies": {
