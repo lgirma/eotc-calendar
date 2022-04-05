@@ -1,3 +1,4 @@
+import { Months } from ".";
 import {Evangelists} from "./constants";
 
 export function getEvangelist(year: number) {
@@ -23,4 +24,15 @@ export function getMebacha(year: number) {
     const aa = 5500 + year
     const rem = (aa + getRabit(year)) % 7
     return rem + 1
+}
+
+export function getMebajaHamer(year: number) {
+    const mebacha = getMebacha(year)
+    const meTq = getMeTq(year)
+
+    const meTqMonth = (meTq >= 2 && meTq <= 14) ? Months.TIQ : Months.MES;
+    const meTqDay = (((meTqMonth-1)*30 + mebacha) % 7) || 7
+    const tewsakTable = [0, 6, 5, 4, 3, 2, 8, 7]
+
+    return [meTqMonth, meTq + tewsakTable[meTqDay]]
 }
