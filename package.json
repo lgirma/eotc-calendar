@@ -1,6 +1,5 @@
 {
   "name": "eotc-calendar",
-  "private": true,
   "version": "1.0.0",
   "author": "Leone",
   "repository": "https://github.com/lgirma/eotc-calendar",
@@ -28,9 +27,7 @@
   },
   "devDependencies": {
     "typescript": "^4.5.4",
-    "vite": "^2.9.0"
-  },
-  "dependencies": {
+    "vite": "^2.9.0",
     "@types/chai": "^4.3.0",
     "@types/mocha": "^9.1.0",
     "@types/node": "^17.0.23",
